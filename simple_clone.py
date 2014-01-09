@@ -181,17 +181,17 @@ def createLayout(rows, cols):
     return {'cells': layoutCells, 'rows': layoutRows, 'cols': layoutCols}
 
 
-    # Used to disable keymaps
+# Used to disable keymaps
 def should_perform_clone(location):
-        disabled_keymaps = settings.get('disabled_keymaps', '')
+    disabled_keymaps = settings.get('disabled_keymaps', '')
 
-        if not disabled_keymaps:
-            return True
+    if not disabled_keymaps:
+        return True
 
-        if disabled_keymaps == 'all':
-            return False
+    if disabled_keymaps == 'all':
+        return False
 
-        return location not in re.split(r'\s*,\s*', disabled_keymaps.strip())
+    return location not in re.split(r'\s*,\s*', disabled_keymaps.strip())
 
 
 class ActionContextHandler(sublime_plugin.EventListener):
